@@ -3,164 +3,853 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pashupati Mishra - Automation Architect & RPA Engineering Lead portfolio." />
-  <title>Pashupati Mishra | Automation Architect</title>
+  <meta name="description" content="Pashupati Mishra - Cinematic portfolio of enterprise automation architecture and RPA engineering leadership." />
+  <title>Pashupati Mishra | Cinematic Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-1: #06080c;
+      --bg-2: #11192a;
+      --bg-3: #2f1b12;
+      --surface: rgba(255, 255, 255, 0.06);
+      --surface-strong: rgba(255, 255, 255, 0.1);
+      --text: #f5f2eb;
+      --text-soft: #bbb9b0;
+      --accent: #ff7a34;
+      --accent-2: #3fb9ff;
+      --line: rgba(255, 255, 255, 0.18);
+      --radius: 22px;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+      --container: min(1220px, 92vw);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(60vw 60vw at 8% -10%, rgba(63, 185, 255, 0.22), transparent 60%),
+        radial-gradient(65vw 65vw at 92% 0%, rgba(255, 122, 52, 0.2), transparent 65%),
+        linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 55%, var(--bg-3) 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,0.25) 0.5px, transparent 0.5px);
+      background-size: 3px 3px;
+      opacity: 0.08;
+      z-index: -1;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      z-index: 20;
+    }
+
+    .nav {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(980px, 92vw);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(5, 9, 14, 0.64);
+      backdrop-filter: blur(10px);
+      z-index: 15;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-family: "Syne", sans-serif;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 16px rgba(255, 122, 52, 0.8);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--text-soft);
+      font-size: 0.88rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 6px 12px;
+      transition: color 220ms var(--ease), border-color 220ms var(--ease), background-color 220ms var(--ease);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible,
+    .nav-links a.active {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+      outline: none;
+    }
+
+    main {
+      width: var(--container);
+      margin: 0 auto;
+      padding-top: 108px;
+      padding-bottom: 64px;
+    }
+
+    section {
+      margin-top: clamp(56px, 9vw, 110px);
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: clamp(18px, 4vw, 48px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      font-size: 0.72rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(2.4rem, 8vw, 7.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 0.9;
+      text-wrap: balance;
+    }
+
+    .hero h1 span {
+      display: inline-block;
+      background: linear-gradient(120deg, #ffd6bd, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-lead {
+      margin-top: 24px;
+      max-width: 60ch;
+      color: var(--text-soft);
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      text-wrap: pretty;
+    }
+
+    .hero-meta {
+      margin-top: 12px;
+      color: #9ea5af;
+      font-size: 0.92rem;
+    }
+
+    .cta {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 11px 18px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 260ms var(--ease), border-color 260ms var(--ease), background-color 260ms var(--ease), color 260ms var(--ease);
+      will-change: transform;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--accent), #ff9f68);
+      color: #fff;
+      box-shadow: 0 8px 26px rgba(255, 122, 52, 0.36);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .btn-ghost {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.34);
+      transform: translateY(-2px);
+    }
+
+    .hero-photo-shell {
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: linear-gradient(165deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
+      box-shadow: var(--shadow);
+      padding: 12px;
+      transform: translateY(10px);
+    }
+
+    .hero-photo {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .section-head {
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .section-head h2 {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1.8rem, 4.2vw, 3.6rem);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      text-wrap: balance;
+    }
+
+    .section-head p {
+      max-width: 72ch;
+      color: var(--text-soft);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      transition: transform 240ms var(--ease), border-color 240ms var(--ease), background-color 240ms var(--ease);
+    }
+
+    .metric:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 122, 52, 0.5);
+      background: var(--surface-strong);
+    }
+
+    .metric strong {
+      display: block;
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: #ffd7c3;
+      line-height: 1;
+    }
+
+    .metric span {
+      margin-top: 8px;
+      display: block;
+      color: var(--text-soft);
+      font-size: 0.9rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      padding: 20px;
+      background: linear-gradient(150deg, rgba(63,185,255,0.09), rgba(255,122,52,0.08), rgba(255,255,255,0.02));
+      min-height: 230px;
+      transition: transform 270ms var(--ease), border-color 270ms var(--ease);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: -60% auto auto -30%;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.26), transparent 70%);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 360ms var(--ease), transform 360ms var(--ease);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.36);
+    }
+
+    .card:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card h3 {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      line-height: 1.15;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stack {
+      font-size: 0.85rem;
+      color: #ffbe97;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card p {
+      color: var(--text-soft);
+      position: relative;
+      z-index: 1;
+      text-wrap: pretty;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 14px;
+    }
+
+    .timeline-time {
+      font-size: 0.85rem;
+      color: var(--accent-2);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .timeline-body h3 {
+      font-family: "Syne", sans-serif;
+      margin-bottom: 7px;
+      font-size: 1.18rem;
+    }
+
+    .timeline-body p {
+      color: var(--text-soft);
+      text-wrap: pretty;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .skill {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      background: var(--surface);
+    }
+
+    .skill h3 {
+      font-family: "Syne", sans-serif;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      color: #ffdbca;
+    }
+
+    .skill p {
+      color: var(--text-soft);
+      font-size: 0.96rem;
+      text-wrap: pretty;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    }
+
+    .split ul {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+
+    .split li {
+      color: var(--text-soft);
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .split li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: 10px;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+    }
+
+    .contact {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(20px, 4vw, 36px);
+      background: linear-gradient(160deg, rgba(63,185,255,0.13), rgba(255,122,52,0.13), rgba(255,255,255,0.04));
+    }
+
+    .contact h2 {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+
+    .contact p {
+      color: var(--text-soft);
+      max-width: 70ch;
+    }
+
+    .contact-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap: 10px;
+    }
+
+    .contact-link {
+      border: 1px solid rgba(255,255,255,0.26);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: #fff;
+      transition: transform 220ms var(--ease), background-color 220ms var(--ease), border-color 220ms var(--ease);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .contact-link:hover,
+    .contact-link:focus-visible {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.14);
+      border-color: #fff;
+      outline: none;
+    }
+
+    .footer {
+      margin-top: 44px;
+      text-align: center;
+      color: #9da4ae;
+      font-size: 0.9rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translate3d(0, 22px, 0);
+      transition: opacity 720ms var(--ease), transform 720ms var(--ease);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-photo-shell {
+        width: min(520px, 100%);
+      }
+
+      .metrics {
+        grid-template-columns: repeat(3, minmax(120px, 1fr));
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      main {
+        padding-top: 120px;
+      }
+
+      .nav {
+        border-radius: 20px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .projects,
+      .skills,
+      .split,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="grain"></div>
-  <header class="site-header" id="top">
-    <a class="brand" href="#top">PM</a>
-    <nav>
+  <div class="progress" id="progress"></div>
+
+  <header class="nav">
+    <a class="brand" href="#top"><span class="brand-dot"></span> PASHUPATI MISHRA</a>
+    <nav class="nav-links" aria-label="Primary">
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
+      <a href="#credentials">Credentials</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero section reveal" aria-label="Introduction">
-      <div class="hero-copy">
-        <p class="eyebrow">Automation Architect & RPA Engineering Lead</p>
-        <h1>Pashupati <span>Mishra</span></h1>
-        <p class="lead">
-          I design and operate enterprise automation systems that scale reliably - from distributed bot farms and VM orchestration to AI-assisted process tooling.
+  <main id="top">
+    <section class="hero">
+      <div>
+        <p class="eyebrow reveal">Automation Architect & RPA Engineering Lead</p>
+        <h1 class="reveal">Designing <span>Automation Systems</span> That Survive Reality</h1>
+        <p class="hero-lead reveal">
+          I build resilient enterprise automation platforms across RPA, cloud orchestration, and AI-assisted operations. From distributed bot farms to production-grade tooling, I focus on systems that scale with control, observability, and business impact.
         </p>
-        <div class="cta-row">
+        <div class="cta reveal">
           <a class="btn btn-primary" href="https://www.linkedin.com/in/pashupati-mishra/" target="_blank" rel="noopener noreferrer">Open LinkedIn</a>
           <a class="btn btn-ghost" href="https://github.com/pashupatimishra20" target="_blank" rel="noopener noreferrer">View GitHub</a>
         </div>
-        <p class="meta">Noida, Uttar Pradesh, India</p>
+        <p class="hero-meta reveal">Noida, Uttar Pradesh, India</p>
       </div>
-      <div class="hero-photo-wrap" data-parallax="0.08">
-        <img src="assets/pashupati.jpg" alt="Portrait of Pashupati Mishra" class="hero-photo" />
+      <div class="hero-photo-shell reveal" data-parallax="0.1">
+        <img class="hero-photo" src="assets/pashupati.jpg" alt="Pashupati Mishra portrait" />
       </div>
     </section>
 
-    <section class="metrics section reveal" aria-label="Impact metrics">
-      <article><h2>7+</h2><p>Years in enterprise automation</p></article>
-      <article><h2>30</h2><p>Bots migrated with zero downtime</p></article>
-      <article><h2>18</h2><p>RPA VMs orchestrated in bot farm</p></article>
-      <article><h2>400</h2><p>Virtual resources automated</p></article>
-      <article><h2>80%</h2><p>Manual effort saved in key flows</p></article>
+    <section class="reveal">
+      <div class="section-head">
+        <p class="eyebrow">Impact</p>
+      </div>
+      <div class="metrics">
+        <article class="metric"><strong>7+</strong><span>Years in enterprise automation</span></article>
+        <article class="metric"><strong>30</strong><span>Bots migrated with zero downtime</span></article>
+        <article class="metric"><strong>18</strong><span>RPA VMs orchestrated in production</span></article>
+        <article class="metric"><strong>400</strong><span>Virtual resources automated</span></article>
+        <article class="metric"><strong>80%</strong><span>Manual effort reduction in key ops</span></article>
+      </div>
     </section>
 
-    <section class="section reveal" id="projects" aria-labelledby="projects-title">
+    <section id="projects" class="reveal">
       <div class="section-head">
         <p class="eyebrow">Signature Work</p>
-        <h2 id="projects-title">Projects That Run In Production</h2>
+        <h2>Projects That Turn Automation Into Infrastructure</h2>
+        <p>Each project below was built for operational reliability, scale, and measurable outcomes.</p>
       </div>
-      <div class="project-grid">
+      <div class="projects">
         <article class="card">
           <h3>BotFarmController</h3>
           <p class="stack">C#, .NET 8, Windows Services, Named Pipes, Power Automate</p>
-          <p>Cloud-to-VM orchestration for 18 RPA machines with 16 operations across health checks, flow execution, restart, monitoring, and audit visibility.</p>
+          <p>Cloud-to-VM orchestration platform for 18 RPA machines with 16 API operations across health/status, restart, runflow, screenshots, service/process validation, and audit tracking with retry/circuit-breaker controls.</p>
         </article>
         <article class="card">
           <h3>LEAD Analyst</h3>
           <p class="stack">Python, Flask, Copilot Studio, SQL Server, Logic Apps</p>
-          <p>AI-powered employee feedback analysis platform for multi-region operations, with multi-threaded processing and structured prompt workflows.</p>
+          <p>AI-driven feedback analysis platform for Europe and India operations, built with multi-threaded processing, API key balancing, and structured JSON output for actionable HR insights.</p>
         </article>
         <article class="card">
           <h3>PAD Selector Assistant</h3>
           <p class="stack">Python, Playwright, LLM Integration</p>
-          <p>Browser recording + LLM assistant to generate resilient PAD selectors, reducing selector authoring from hours to minutes.</p>
+          <p>Developer utility that records browser interactions and generates resilient PAD-compatible selectors from DOM context, reducing manual selector engineering from hours to minutes.</p>
         </article>
         <article class="card">
           <h3>Facial Recognition System</h3>
-          <p class="stack">Python, Flask, face_recognition, NumPy, SQL Server</p>
-          <p>Web app for real-time face matching from webcam/selfie input against encoded records.</p>
+          <p class="stack">Python, Flask, face_recognition, SQL Server, NumPy</p>
+          <p>Web application for real-time face matching from selfie/webcam input against encoded database profiles.</p>
         </article>
       </div>
     </section>
 
-    <section class="section reveal" id="experience" aria-labelledby="experience-title">
+    <section id="experience" class="reveal">
       <div class="section-head">
-        <p class="eyebrow">Career</p>
-        <h2 id="experience-title">Experience Timeline</h2>
+        <p class="eyebrow">Experience</p>
+        <h2>Execution Across Enterprise Environments</h2>
       </div>
       <div class="timeline">
         <article class="timeline-item">
-          <p class="time">Oct 2023 - Present</p>
-          <h3>Assistant Manager, EY</h3>
-          <p>Migrated 30 Blue Prism bots to Power Automate Desktop with zero downtime and led distributed bot platform engineering.</p>
+          <p class="timeline-time">Oct 2023 - Present</p>
+          <div class="timeline-body">
+            <h3>Assistant Manager, EY</h3>
+            <p>Led migration of 30 Blue Prism bots to Power Automate Desktop without production downtime and engineered distributed automation control platforms for enterprise operations.</p>
+          </div>
         </article>
         <article class="timeline-item">
-          <p class="time">Jun 2021 - Oct 2023</p>
-          <h3>RPA Developer, EY</h3>
-          <p>Built and maintained 20+ enterprise automations with end-to-end infrastructure, monitoring, and reporting workflows.</p>
+          <p class="timeline-time">Jun 2021 - Oct 2023</p>
+          <div class="timeline-body">
+            <h3>RPA Developer, EY</h3>
+            <p>Developed and maintained 20+ bots while managing deployment, queue operations, monitoring, MI reporting, and incident response automation for HR service operations.</p>
+          </div>
         </article>
         <article class="timeline-item">
-          <p class="time">May 2021 - Jun 2021</p>
-          <h3>Business Analyst, R1 RCM</h3>
-          <p>Supported automation initiatives with analysis and requirements alignment.</p>
+          <p class="timeline-time">May 2021 - Jun 2021</p>
+          <div class="timeline-body">
+            <h3>Business Analyst, R1 RCM</h3>
+            <p>Supported automation initiatives through business analysis and implementation planning.</p>
+          </div>
         </article>
         <article class="timeline-item">
-          <p class="time">Jul 2018 - May 2021</p>
-          <h3>Robotics Engineer, MetLife</h3>
-          <p>Engineered high-availability bot operations and automated password management for 400 virtual resources, saving 80% manual effort.</p>
+          <p class="timeline-time">Jul 2018 - May 2021</p>
+          <div class="timeline-body">
+            <h3>Robotics Engineer, MetLife</h3>
+            <p>Built high-availability automation with PowerShell and VMware PowerCLI, automated password operations for 400 resources, and delivered real-time reporting and monitoring visibility.</p>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="section reveal" id="skills" aria-labelledby="skills-title">
+    <section id="skills" class="reveal">
       <div class="section-head">
-        <p class="eyebrow">Capabilities</p>
-        <h2 id="skills-title">Technical Stack</h2>
+        <p class="eyebrow">Technical Stack</p>
+        <h2>Platform, Language, and Ops Depth</h2>
       </div>
-      <div class="skills-grid">
-        <article><h3>Automation / RPA</h3><p>Blue Prism, Power Automate Desktop, Power Automate Cloud, UiPath, A2019</p></article>
-        <article><h3>AI / Agents</h3><p>Copilot Studio, Direct Line API, OpenAI/Ollama integration, Prompt Engineering</p></article>
-        <article><h3>Languages</h3><p>Python, C#, PowerShell, JavaScript, SQL, HTML/CSS</p></article>
-        <article><h3>Frameworks</h3><p>Flask, Streamlit, .NET, Playwright, SQLAlchemy, NumPy, Pillow</p></article>
-        <article><h3>Cloud & Data</h3><p>Azure Logic Apps, SQL Server, Power BI</p></article>
-        <article><h3>Infrastructure</h3><p>Windows Services, Named Pipes IPC, Win32 API, VMware PowerCLI, MSI packaging</p></article>
+      <div class="skills">
+        <article class="skill"><h3>Automation / RPA</h3><p>Blue Prism, Power Automate Desktop, Power Automate Cloud, UiPath, A2019</p></article>
+        <article class="skill"><h3>AI / Agents</h3><p>Microsoft Copilot Studio, Direct Line API, OpenAI and Ollama integrations, Prompt Engineering</p></article>
+        <article class="skill"><h3>Languages</h3><p>Python, C#, PowerShell, JavaScript, SQL, HTML/CSS</p></article>
+        <article class="skill"><h3>Frameworks & Tools</h3><p>Flask, Streamlit, .NET, Playwright, SQLAlchemy, Pillow, NumPy</p></article>
+        <article class="skill"><h3>Cloud & Data</h3><p>Azure Logic Apps, Power Automate Cloud Flows, SQL Server, Power BI</p></article>
+        <article class="skill"><h3>Infrastructure & DevOps</h3><p>Windows Services, Named Pipes IPC, Win32 API, VMware PowerCLI, MSI packaging, monitoring and exception handling</p></article>
       </div>
     </section>
 
-    <section class="section reveal" aria-labelledby="credentials-title">
+    <section id="credentials" class="reveal">
       <div class="section-head">
-        <p class="eyebrow">Recognition</p>
-        <h2 id="credentials-title">Certifications & Awards</h2>
+        <p class="eyebrow">Credentials</p>
+        <h2>Certifications & Recognition</h2>
       </div>
-      <div class="two-col-list">
+      <div class="split">
         <ul>
           <li>EY Artificial Intelligence - Applied AI (2024)</li>
-          <li>EY RPA Silver (2022)</li>
-          <li>EY RPA Bronze</li>
+          <li>EY Robotic Process Automation - Silver (2022)</li>
+          <li>EY Robotic Process Automation - Bronze</li>
           <li>IT Infra Administrator (A2019)</li>
+          <li>Control Room Administrator</li>
+          <li>Master Copilot Studio</li>
         </ul>
         <ul>
-          <li>Business Extraordinaire - EY (Jul 2024)</li>
+          <li>Business Extraordinaire - Ernst & Young</li>
           <li>Blue Prism Developer Challenge - 3rd Place</li>
           <li>MetLife GEM Award (multiple)</li>
           <li>I am Exceptional</li>
+          <li>B.Tech, Computer Science and Technology - Galgotias University</li>
         </ul>
       </div>
     </section>
 
-    <section class="section contact reveal" id="contact" aria-labelledby="contact-title">
-      <div class="section-head">
-        <p class="eyebrow">Get In Touch</p>
-        <h2 id="contact-title">Let’s Build Reliable Automation At Scale</h2>
-      </div>
+    <section class="contact reveal" id="contact">
+      <h2>Open To Senior Automation & Platform Engineering Roles</h2>
+      <p>If you need enterprise-grade automation leadership with delivery depth across infrastructure, RPA operations, and AI-enabled tooling, let’s connect.</p>
       <div class="contact-grid">
-        <a href="mailto:malikmishra2004@gmail.com">malikmishra2004@gmail.com</a>
-        <a href="tel:+919582994257">+91 9582994257</a>
-        <a href="https://www.linkedin.com/in/pashupati-mishra/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://github.com/pashupatimishra20" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="contact-link" href="mailto:malikmishra2004@gmail.com">malikmishra2004@gmail.com</a>
+        <a class="contact-link" href="tel:+919582994257">+91 9582994257</a>
+        <a class="contact-link" href="https://www.linkedin.com/in/pashupati-mishra/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+        <a class="contact-link" href="https://github.com/pashupatimishra20" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
       </div>
     </section>
+
+    <p class="footer">© <span id="year"></span> Pashupati Mishra. Cinematic portfolio edition.</p>
   </main>
 
-  <footer class="site-footer reveal">
-    <p>© <span id="year"></span> Pashupati Mishra. Built for executive-level automation roles.</p>
-  </footer>
+  <script>
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-  <script src="script.js"></script>
+    const progress = document.getElementById("progress");
+    const updateProgress = () => {
+      const top = window.scrollY;
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      const p = h > 0 ? top / h : 0;
+      progress.style.transform = `scaleX(${p})`;
+    };
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+
+    const reveals = document.querySelectorAll(".reveal");
+    if (reduced) {
+      reveals.forEach((el) => el.classList.add("in"));
+    } else {
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+
+      reveals.forEach((el, i) => {
+        el.style.transitionDelay = `${Math.min(i * 45, 260)}ms`;
+        io.observe(el);
+      });
+    }
+
+    const navLinks = [...document.querySelectorAll(".nav-links a")];
+    const sections = navLinks
+      .map((a) => document.querySelector(a.getAttribute("href")))
+      .filter(Boolean);
+
+    const markActive = () => {
+      const pos = window.scrollY + window.innerHeight * 0.35;
+      let active = null;
+      sections.forEach((s) => {
+        if (pos >= s.offsetTop) active = s.id;
+      });
+      navLinks.forEach((a) => {
+        const href = a.getAttribute("href").slice(1);
+        a.classList.toggle("active", href === active);
+      });
+    };
+
+    markActive();
+    window.addEventListener("scroll", markActive, { passive: true });
+
+    if (!reduced) {
+      const parallaxEls = document.querySelectorAll("[data-parallax]");
+      const onParallax = () => {
+        const y = window.scrollY;
+        parallaxEls.forEach((el) => {
+          const speed = Number(el.dataset.parallax || "0.08");
+          el.style.transform = `translate3d(0, ${Math.round(y * speed)}px, 0)`;
+        });
+      };
+      window.addEventListener("scroll", onParallax, { passive: true });
+      onParallax();
+
+      document.querySelectorAll(".btn").forEach((btn) => {
+        btn.addEventListener("mousemove", (e) => {
+          const r = btn.getBoundingClientRect();
+          const dx = (e.clientX - (r.left + r.width / 2)) / r.width;
+          const dy = (e.clientY - (r.top + r.height / 2)) / r.height;
+          btn.style.transform = `translate3d(${dx * 6}px, ${dy * 5}px, 0)`;
+        });
+        btn.addEventListener("mouseleave", () => {
+          btn.style.transform = "translate3d(0,0,0)";
+        });
+      });
+    }
+  </script>
 </body>
 </html>
